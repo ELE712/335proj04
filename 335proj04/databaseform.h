@@ -20,7 +20,9 @@ private slots:
     void addData(std::vector<QString>);
 
     void on_okButton_clicked();
+    void on_header_clicked(int);
 
+    void on_actionSave_triggered();
 
 private:
     Ui::DatabaseForm *ui;
