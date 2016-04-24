@@ -14,7 +14,6 @@ DatabaseForm::DatabaseForm(QWidget *parent) :
     ui->tableWidget->setColumnCount(4);
     QHeaderView* m_header = ui->tableWidget->horizontalHeader(); //headers
     connect(m_header, SIGNAL(sectionClicked(int)), this, SLOT(on_header_clicked(int))); //header connection
-    //
 }
 
 DatabaseForm::~DatabaseForm()
