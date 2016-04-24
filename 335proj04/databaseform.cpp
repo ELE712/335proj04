@@ -59,56 +59,41 @@ void DatabaseForm::on_header_clicked(int index){
 
 }
 
-
-
 void DatabaseForm::on_actionSave_triggered()
 {
-    QFile file("CSV.txt");
-    //QFile t_file("TSV.txt");
+    QFile c_file("CSV.txt");
+    QFile t_file("TSV.txt");
     int row_count = ui->tableWidget->rowCount();
 
-    if (!file.open(QIODevice::WriteOnly)){
-        qDebug("Uh oh");
+    if (!c_file.open(QIODevice::WriteOnly)){
         return;
     }
 
-    QTextStream c_str(&file);
+    QTextStream c_str(&c_file);
+    c_str << "FirstName,LastName,Salary,HireYear\n";
     for (int i=0; i<row_count; i++){ //each row
         for (int j=0; j<4; j++){ //each column in row
-            c_str << ui->tableWidget->item(i,j)->text() << ",";
-            //QString test = ui->tableWidget->item(i,j)->text();
+            c_str << ui->tableWidget->item(i,j)->text();
+            if (j<3) //add commas except last element
+                c_str << ",";
         }
         c_str << "\n";
     }
-    qDebug("Got here");
-    file.close();
+    c_file.close();
 
-/*
-    if (t_file.open(QIODevice::WriteOnly | QIODevice::Text)){
-        qDebug("Uh Oh v2");
+
+    if (!t_file.open(QIODevice::WriteOnly)){
         return;
     }
     QTextStream t_str(&t_file);
+    t_str << "FirstName\tLastName\tSalary\tHireYear\n";
     for (int i=0; i<row_count; i++){ //each row
         for (int j=0; j<4; j++){ //each column in row
-            t_str << ui->tableWidget->item(i,j)->text() << ",";
+            t_str << ui->tableWidget->item(i,j)->text();
+            if (j<3)
+                t_str << "\t";
         }
         t_str << "\n";
     }
-    */
-
-
-    /*
-    CommaBuilder cb;
-    TabBuilder tb;
-    int row_count = ui->tableWidget->rowCount();
-    for (int i=0; i<row_count; i++){ //each row
-        for (int j=0; j<4; j++){ //each column in row
-            cb.addItem(ui->tableWidget->item(i,j)->text());
-            tb.addItem(ui->tableWidget->item(i,j)->text());
-        }
-    }
-    //cb.saveFile();
-    //tb.saveFile();
-    */
+    t_file.close();
 }
