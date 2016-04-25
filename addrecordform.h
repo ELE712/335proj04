@@ -1,4 +1,17 @@
-#ifndef ADDRECORDFORM_H
+/******************************************************
+ ** FILE: addrecordform.h
+ **
+ ** ABSTRACT:
+ ** Create class to add records to form, uses buttons
+ **
+ **
+ ** AUTHOR: Ezekiel Zandbergen, Cynthia Obia
+ **
+ ** CREATION DATE: 4-24-16
+ **
+ *******************************************************/
+ 
+ #ifndef ADDRECORDFORM_H
 #define ADDRECORDFORM_H
 
 #include <QDialog>
