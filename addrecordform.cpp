@@ -1,3 +1,16 @@
+/******************************************************
+ ** FILE: addrecordform.cpp
+ **
+ ** ABSTRACT:
+ ** Create class to add records
+ **
+ **
+ ** AUTHOR: Ezekiel Zandbergen, Cynthia Obia
+ **
+ ** CREATION DATE: 4-24-16
+ **
+ *******************************************************/
+
 #include "addrecordform.h"
 #include "ui_addrecordform.h"
 #include "databaseform.h"
